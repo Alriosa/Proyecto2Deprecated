@@ -1,0 +1,25 @@
+﻿@using WebUI.Models.Helpers;
+<script src="~/Scripts/Views/CompareOffers.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).on('click', 'a', function () {
+        var js = new CompareOffers();
+        js.acceptOffer($("#" + this.id).attr("productRequestResponseId"), $("#" + this.id).attr("requestId"));
+        return false;
+    });
+</script>
+
+<h2>CompareOffers</h2>
+
+<div id="wrapper" class="container wrapper">
+    <div class="tab-content">
+        <div class="container">
+            <div id="offersContainer" class="row">
+            </div>
+        </div>
+    </div>
+</div>

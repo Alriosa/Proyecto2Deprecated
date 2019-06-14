@@ -1,0 +1,44 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/CrudProductProvider.js"></script>
+@{
+    ViewBag.Title = "ProductProviderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    Html.RenderPartial("_MenuAdmin");
+}
+
+<label id="whoAmI" class="d-none">list</label>
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Listar proveedores</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Proveedores de productos</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                @Html.CtrlTable(viewName: "AdminProductProviderList", id: "tblProductProvider", title: "Proveedores",
+                    columnsTitle: "ID del proveedor,Id de la tienda,Nombre,ID Direccion,Tipo de proveedor,Telefono,Correo electronico", ColumnsDataName: "ProductProviderId,StoreId,Name,ProviderId,Address,ProviderType,Phone,Email", onSelectFunction: "BindFields")
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="d-flex flex-row">
+            <div>
+                @Html.CtrlButton(viewName: "Crud", id: "btnCancel", style: "ho-button-dark", label: "Atrás", onClickFunction: "Back")
+            </div>
+        </div>
+    </div>
+</div>

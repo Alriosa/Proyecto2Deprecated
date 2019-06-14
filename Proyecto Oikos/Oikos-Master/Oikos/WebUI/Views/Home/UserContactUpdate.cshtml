@@ -1,0 +1,51 @@
+﻿@using WebUI.Models.Helpers
+<script src="~/Scripts/Views/CrudUserContact.js"></script>
+@{
+    ViewBag.Title = "UserContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserContact</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div id="wrapper" class="container wrapper">
+        <div class="row">
+            <div class="col-12 my-account-area ptb-30">
+                <h2>Actualizar informacion de contacto</h2>
+                <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                    <div class="myaccount-details">
+                        <form action="#" class="ho-form">
+                            <div class="ho-form-inner" id="frmUserContact">
+
+
+                                @*UserId*@
+                                @Html.CtrlInput(divSize: "d-none", id: "txtShippingProviderId", type: "type=\"text\" disabled ", format: "", label: "Id del Usuario", placeHolder: "", columnDataName: "UserId")
+
+
+                                @*ContactTypeCode*@
+                                @Html.CtrlDropDown2(id: "drpProviderType", label: "Tipo de Proveedor", listId: "typecode", style: "single-input single-input-half", columnDataName: "ProviderType")
+
+                                
+
+                                @*ContactValue*@
+                                @Html.CtrlInput(divSize: "single-input", id: "txtContactValue", type: "type=\"text\"", format: "", label: "Datos", placeHolder: "", columnDataName: "ContactValue")
+
+
+
+                                @* Button *@
+                                @Html.CtrlButton(viewName: "Crud", id: "btnUpdate", style: "ho-button-dark", label: "Actualizar informacion de contacto", onClickFunction: "Update")
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        LoadForm();
+    </script>
+}

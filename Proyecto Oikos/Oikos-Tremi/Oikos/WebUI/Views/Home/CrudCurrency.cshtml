@@ -1,0 +1,44 @@
+﻿@using WebUI.Models.Helpers
+
+@{
+    ViewBag.Title = "CrudCurrency";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateCategory</h2>
+<div id="wrapper" class="wrapper">
+    
+    <ul class="row col-lg-2">
+        <li>
+            @Html.CtrlButton(viewName: "CrudCurrency", id: "btnListCurrencies", style: "ho-button-dark", label: "Listar monedas", onClickFunction: "ShowList")
+        </li>
+    </ul>
+
+
+    <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+        <div class="myaccount-details">
+            <form action="#" class="ho-form" id="frmCurrency">
+                <div class="ho-form-inner">
+                    <div class="single-input">
+                        @Html.CtrlInput(divSize: "single-input-whole", id: "txtValue", type: "type=\"text\"", format: "", label: "Código de moneda", placeHolder: "USD, COL, etc...", columnDataName: "Value")
+                    </div>
+                    <div class="single-input">
+                        @Html.CtrlInput(divSize: "single-input-whole", id: "txtDescription", type: "type=\"text\"", format: "", label: "Nombre", placeHolder: "", columnDataName: "Description")
+                    </div>
+                </div>
+            </form>
+            <div class="flex-lg-row">
+                @Html.CtrlTable(viewName: "CrudCurrency", id: "tblCurrencies", title: "Monedas",
+                    columnsTitle: "Tipo,Código,Nombre", ColumnsDataName: "ListId,Value,Description", onSelectFunction:"BindFields")
+            </div>
+            <div class="">
+                @Html.CtrlButton(viewName: "CreateCategory", id: "btnUpdate", style: "ho-button-dark", label: "Actualizar categoría", onClickFunction: "Update")
+            </div>  
+            <div class="">
+                @Html.CtrlButton(viewName: "CreateCategory", id: "btnDelete", style: "ho-button-dark", label: "Eliminar categoría", onClickFunction: "Delete")
+            </div>
+            
+
+        </div>
+    </div>
+</div>

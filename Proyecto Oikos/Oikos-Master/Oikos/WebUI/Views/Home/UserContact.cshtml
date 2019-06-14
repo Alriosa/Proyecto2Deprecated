@@ -1,0 +1,45 @@
+﻿@using WebUI.Models.Helpers
+<script src="~/Scripts/Views/CrudUserContact.js"></script>
+@{
+    ViewBag.Title = "UserContact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_MenuClient");
+}
+
+
+<label id="whoAmI" class="d-none">create</label>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Crear informacion de contacto</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                <div class="myaccount-details">
+                    <form action="#" class="ho-form">
+                        <div class="ho-form-inner" id="frmUserContact">
+
+
+                            @*UserId*@
+                            @Html.CtrlInput(divSize: "d-none", id: "txtUserId", type: "type=\"text\" disabled ", format: "", label: "Id del Usuario", placeHolder: "", columnDataName: "UserId")
+
+                            @*ContactTypeCode*@
+                            @Html.CtrlDropDown2(id: "drpContactType", label: "Tipo de contacto", listId: "contactcode", style: "single-input single-input-half", columnDataName: "ContactTypeCode")
+
+                            @*ContactValue*@
+                            @Html.CtrlInput(divSize: "single-input", id: "txtContactValue", type: "type=\"text\"", format: "", label: "Datos", placeHolder: "", columnDataName: "ContactValue")
+
+                            @* Button *@
+                            @Html.CtrlButton(viewName: "Crud", id: "btnCreate", style: "ho-button", label: "Crear", onClickFunction: "Create")
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

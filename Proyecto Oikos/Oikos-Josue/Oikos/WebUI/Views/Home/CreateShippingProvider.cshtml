@@ -1,0 +1,122 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/vShippingProviders.js"></script>
+<script src="~/Scripts/Views/mapsShippingProvider.js"></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "CreateShippingProvider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Registrar nuevo repartidor</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Crear nuevo repartidor</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                <div class="">
+                    <form class="ho-form" action="#" id="frmShippingProvider" >
+
+                        <div class="ho-form-inner">
+
+                            <div id="divShippingProviderLogo" class="col-md-2 col-sm-12">
+                                <img id="imgShippingProviderLogo" src="" alt="Logo">
+                            </div>
+                            <div class="col-md-10 col-sm-12">
+                                <button id="btnCloudinary" type="button" class="mt-3 ho-button ho-button-dark" onclick="showUploadWidget(false)">
+                                    <span>
+                                        Subir logotipo
+                                    </span>
+                                </button>
+                            </div>
+
+
+                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtName", type: "type=\"text\"", format: "text", label: "Nombre del Repartidor", placeHolder: "", columnDataName: "Name")
+
+
+                            @Html.CtrlInput(divSize: "d-none", id: "txtLogo", type: "type=\"text\"", format: "text", label: "URL logotipo", placeHolder: "", columnDataName: "Logo")
+                            
+
+                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtBaseFare", type: "type=\"number\"", format: "text", label: "Tarifa Base", placeHolder: "", columnDataName: "BaseFare")
+
+
+                            @Html.CtrlDropDown2(id: "drpCurrencyCode", label: "Código de Moneda", listId: "currency", style: "single-input single-input-half", columnDataName: "CurrencyCode")
+
+
+                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtCommission", type: "type=\"text\"", format: "text", label: "Porcentaje de Comisión", placeHolder: "", columnDataName: "Commission")
+
+                            @* Hidden *@
+                            @Html.CtrlInput(divSize: "d-none", id: "txtShippingProviderId", type: "type=\"text\"", format: "", label: "Id del Repartidor", placeHolder: "", columnDataName: "ShippingProviderId")
+
+                            @Html.CtrlInput(divSize: "d-none", id: "txtOwnerId", type: "type=\"number\"", format: "", label: "Owner ID", placeHolder: "", columnDataName: "Owner")
+                            @Html.CtrlInput(divSize: "d-none", id: "txtShippingProviderStatusCode", type: "type=\"text\"", format: "", label: "Status de Vendedor", placeHolder: "", columnDataName: "ShippingProviderStatusCode")
+                            @Html.CtrlInput(divSize: "d-none", id: "txtAreaLatitude", type: "type=\"number\"", format: "", label: "Area Latitude", placeHolder: "", columnDataName: "AreaLatitude")
+                            @Html.CtrlInput(divSize: "d-none", id: "txtAreaLongitude", type: "type=\"number\"", format: "", label: "Area Longitude", placeHolder: "", columnDataName: "AreaLongitude")
+                            @Html.CtrlInput(divSize: "d-none", id: "txtAreaRadius", type: "type=\"number\"", format: "", label: "Area Radius", placeHolder: "", columnDataName: "AreaRadius")
+                            <div class="single-input">
+                                <div class="d-inline-block">
+                                    <button type="button" class="ho-button ho-button-dark" data-toggle="modal" data-target="#mapModal">
+                                        <span>
+                                            Seleccionar Área de Cobertura
+                                        </span>
+                                    </button>
+                                </div>
+
+
+                                @Html.CtrlButton(viewName: "vShippingProviders", id: "btnCreate", style: "ho-button ho-button-dark", label: "Crear", onClickFunction: "Create")
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Map modal -->
+<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="Coordinates selector" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Elegir Área de Cobertura</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @* Google maps coordinates selector *@
+                <div class="container">
+                    <div id="mapSelector"></div>
+                    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQSrrB_vyRukFOkul1HqvmyJ0GpPE1Agk&callback=shippingProviderMap"></script>
+                </div>
+            </div>
+            <div class="modal-footer d-inline-block">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btnChooseCoordinates" class="btn btn-info" data-dismiss="modal">Elegir ubicación</button>
+                <small id="lblChosenCoordinates"></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Views/cloudinaryShippingProvider.js"></script>
+
+
+
+

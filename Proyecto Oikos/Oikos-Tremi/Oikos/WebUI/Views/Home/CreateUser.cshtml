@@ -1,0 +1,60 @@
+﻿@using WebUI.Models.Helpers;
+@{
+    ViewBag.Title = "CreateUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/Views/CreateUser.js"></script>
+
+
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Creación de usuario</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<label id="whoAmI" class="d-none">create</label>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Crear cuenta</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                <div class="">
+                    <form action="#" class="ho-form" >
+                        <div class="ho-form-inner" id="frmUser">
+
+                            @Html.CtrlInput(divSize: "single-input-whole", id: "txtIdentification", type: "type=\"text\"", format: "", label: "Identificación personal", placeHolder: "", columnDataName: "Id")
+
+                            @Html.CtrlInput(divSize: "single-input-whole", id: "txtName", type: "type=\"text\"", format: "", label: "Nombre completo", placeHolder: "", columnDataName: "Name")
+                            @Html.CtrlInput(divSize: "single-input-whole", id: "txtEmail", type: "type=\"email\"", format: "", label: "Correo electronico", placeHolder: "", columnDataName: "Email")
+                            @Html.CtrlInput(divSize: "single-input", id: "txtPw", type: "type=\"password\"", format: "", label: "Contraseña", placeHolder: "", columnDataName: "Password")
+
+                            
+                            @Html.CtrlDropDown2(id: "drpUserCode", label: "Tipo de usuario*", listId: "user", style: "single-input single-input-half", columnDataName: "UserCode")
+                            
+                            <div class="single-input">
+                                @* Button *@
+                                @Html.CtrlButton(viewName: "CreateUser", id: "btnCreate", style: "ho-button", label: "Crear usuario", onClickFunction: "Create")
+                            </div>
+                            <div id="alertMessage" class="alertMessage d-none">
+                                <p class="">Por favor verificá los campos en rojo.</p>
+                            </div>
+                            <div id="pwAlertMessage" class="alertMessage d-none">
+                                <p class="">Mínimo 1 mayúscula, 1 minúscula, 1 caracter especial y 1 número.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

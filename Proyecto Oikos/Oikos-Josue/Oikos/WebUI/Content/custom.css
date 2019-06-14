@@ -1,0 +1,211 @@
+/*********************************************************************************
+
+	Template Name: Oikos
+	Description: A perfect template to build beautiful and unique mega store eCommerce websites. It comes with nice and clean design.
+	Version: 3.0
+
+	Note: This is custom css.
+
+**********************************************************************************/
+
+/* Progress bar */
+.progressbar-container {
+    width: 600px;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.progressbar { counter-reset: step; }
+
+.progressbar li {
+    list-style-type: none;
+    width: 25%;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #7d7d7d;
+}
+
+.progressbar li:before {
+    width: 30px;
+    height: 30px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 27px;
+    border: 2px solid #7d7d7d;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.progressbar li:after {
+    width: 100%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #7d7d7d;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+}
+
+.progressbar li:first-child:after { content: none; }
+
+.progressbar li.active { color: #24A2B6; }
+
+.progressbar li.active:before { border-color: #24A2B6; }
+
+.progressbar li.active + li:after { background-color: #24A2B6; }
+
+/* End progress-bar */
+
+/* Stripe */
+
+.stripe.stripe5 { background-color: #9169d8; }
+
+.stripe.stripe5 * {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.stripe.stripe5 form { }
+
+#stripe5-paymentRequest {
+    max-width: 500px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.stripe.stripe5 fieldset {
+    border: 1px solid #b5a4ed;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.stripe.stripe5 fieldset legend {
+    margin: 0 auto;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #cdd0f8;
+    background-color: #9169d8;
+}
+
+.stripe.stripe5 fieldset legend + * { clear: both; }
+
+.stripe.stripe5 .card-only { display: block; }
+
+.stripe.stripe5 .payment-request-available { display: none; }
+
+.stripe.stripe5 .row {
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 0 10px;
+}
+
+.stripe.stripe5 .field {
+    position: relative;
+    width: 100%;
+}
+
+.stripe.stripe5 .field + .field { margin-left: 10px; }
+
+.stripe.stripe5 label {
+    width: 100%;
+    color: #cdd0f8;
+    font-size: 13px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stripe.stripe5 .input {
+    width: 100%;
+    color: #fff;
+    background: transparent;
+    padding: 5px 0 6px 0;
+    border-bottom: 1px solid #a988ec;
+    transition: border-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.stripe.stripe5 .input::-webkit-input-placeholder { color: #bfaef6; }
+
+.stripe.stripe5 .input::-moz-placeholder { color: #bfaef6; }
+
+.stripe.stripe5 .input:-ms-input-placeholder { color: #bfaef6; }
+
+.stripe.stripe5 .input.StripeElement--focus,
+.stripe.stripe5 .input:focus { border-color: #fff; }
+
+.stripe.stripe5 .input.StripeElement--invalid { border-color: #ffc7ee; }
+
+.stripe.stripe5 input:-webkit-autofill,
+.stripe.stripe5 select:-webkit-autofill {
+    -webkit-text-fill-color: #fce883;
+    transition: background-color 100000000s;
+    -webkit-animation: 1ms void-animation-out;
+}
+
+.stripe.stripe5 .StripeElement--webkit-autofill { background: transparent !important; }
+
+.stripe.stripe5 input,
+.stripe.stripe5 button,
+.stripe.stripe5 select {
+    -webkit-animation: 1ms void-animation-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-style: none;
+    border-radius: 0;
+}
+
+.stripe.stripe5 select.input,
+.stripe.stripe5 select:-webkit-autofill {
+    background-image: url('data:image/svg+xml;utf8,<svg width="10px" height="5px" viewBox="0 0 10 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="#fff" d="M5.35355339,4.64644661 L9.14644661,0.853553391 L9.14644661,0.853553391 C9.34170876,0.658291245 9.34170876,0.341708755 9.14644661,0.146446609 C9.05267842,0.0526784202 8.92550146,-2.43597394e-17 8.79289322,0 L1.20710678,0 L1.20710678,0 C0.930964406,5.07265313e-17 0.707106781,0.223857625 0.707106781,0.5 C0.707106781,0.632608245 0.759785201,0.759785201 0.853553391,0.853553391 L4.64644661,4.64644661 L4.64644661,4.64644661 C4.84170876,4.84170876 5.15829124,4.84170876 5.35355339,4.64644661 Z" id="shape"></path></svg>');
+    background-position: 100%;
+    background-size: 10px 5px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+
+.stripe.stripe5 button {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: 20px 0 0;
+    background-color: #fff;
+    border-radius: 6px;
+    color: #9169d8;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.stripe.stripe5 button:active { background-color: #cdd0f8; }
+
+.stripe.stripe5 .error svg .base { fill: #fff; }
+
+.stripe.stripe5 .error svg .glyph { fill: #9169d8; }
+
+.stripe.stripe5 .error .message { color: #fff; }
+
+.stripe.stripe5 .success .icon .border { stroke: #bfaef6; }
+
+.stripe.stripe5 .success .icon .checkmark { stroke: #fff; }
+
+.stripe.stripe5 .success .title { color: #fff; }
+
+.stripe.stripe5 .success .message { color: #cdd0f8; }
+
+.stripe.stripe5 .success .reset path { fill: #fff; }
+
+/* End Stripe */

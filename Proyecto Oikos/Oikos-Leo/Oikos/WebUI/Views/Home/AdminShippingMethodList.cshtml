@@ -1,0 +1,31 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/CrudShippingMethod.js"></script>
+@{
+    ViewBag.Title = "ShippingMethodList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Listar Metodos de envio</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Tiendas registradas</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                @Html.CtrlTable(viewName: "ShippingMethodList", id: "tblShippingMethodId", title: "Metodos de Envio",
+                    columnsTitle: "ID,Nombre,ID del proveedor,Costo Base, Costo adicional, Descripción, Status", ColumnsDataName: "ShippingMethodId,Name,ShippingProviderId,BaseCost,AdditionalCost,Description,IsActive", onSelectFunction: "BindFields")
+            </div>
+        </div>
+    </div>
+</div>

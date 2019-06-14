@@ -1,0 +1,101 @@
+﻿@using WebUI.Models.Helpers
+
+@{
+    ViewBag.Title = "ListProductInventory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/Views/CrudStock.js"></script>
+
+@{
+    Html.RenderPartial("_MenuStore");
+}
+
+<label id="whoAmI" class="d-none">prodList</label>
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "StoreMenu")</li>
+                <li>Inventario de producto</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            @Html.CtrlTable(viewName: "CrudStock", id: "tblProdInventory", title: "Inventory",
+                columnsTitle: "Producto,Precio De Compra ₡,Numero de serie", ColumnsDataName: "ProductId,PriceBought,SerialNumber", onSelectFunction: "BindFields")
+        </div>
+    </div>
+</div>
+
+<!-- Update modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="Update" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Modificar unidad de inventario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div id="wrapper" class="container wrapper">
+                <div class="row">
+                    <div class="col-12 my-account-area ptb-30">
+                        <h2></h2>
+                        <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                            <div class="">
+                                <div>
+                                    <form action="#" class="ho-form" id="frmInventory">
+                                        <div class="ho-form-inner">
+                                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtPrice", type: "type=\"text\"", format: "", label: "Precio de compra", placeHolder: "", columnDataName: "PriceBought")
+
+                                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtDate", type: "type=\"date\" disabled", format: "", label: "Fecha", placeHolder: "", columnDataName: "PurchaseDatetime")
+
+                                            @Html.CtrlTextArea(divSize: "single-input", id: "txtSerialNumber", type: "type=\"number\"", format: "", label: "Número de serie", placeHolder: "", columnDataName: "SerialNumber")
+
+
+
+                                            @* Hidden *@
+                                            @Html.CtrlInput(divSize: "d-none", id: "txtSold", type: "type=\"text\" disabled", format: "", label: "ID del producto", placeHolder: "", columnDataName: "ProductId")
+
+                                            <div class="col-12">
+                                                <div class="d-flex flex-row">
+                                                    <div>
+                                                        <div class="single-input">
+                                                            <button type="button" id="btnCancel" class="ho-button ho-button-dark" style="margin-left: 5px; margin-right: 5px;" data-dismiss="modal">
+                                                                <span>
+                                                                    Cancelar
+                                                                </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        @Html.CtrlButton(viewName: "Crud", id: "btnDelete", style: "ho-button", label: "Eliminar", onClickFunction: "Delete")
+                                                    </div>
+                                                    <div>
+                                                        @Html.CtrlButton(viewName: "Crud", id: "btnUpdate", style: "ho-button", label: "Modificar", onClickFunction: "Update")
+                                                    </div>
+                                                    <div id="alertMessage" class="alertMessage d-none">
+                                                        <p class="">Por favor verificá los campos en rojo.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

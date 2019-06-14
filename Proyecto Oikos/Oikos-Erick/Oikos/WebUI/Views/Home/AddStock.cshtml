@@ -1,0 +1,59 @@
+﻿@using WebUI.Models.Helpers
+
+@{
+    ViewBag.Title = "AddStock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/Views/CrudStock.js"></script>
+
+@{
+    Html.RenderPartial("_MenuStore");
+}
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Aumentar inventario</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<label id="whoAmI" class="d-none">addstock</label>
+
+
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Agregar unidades de inventario</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                <div class="">
+                    <form action="#" class="ho-form">
+                        <div class="ho-form-inner" id="frmStock">
+                            @Html.CtrlInput(divSize: "d-none", id: "nProductId", type: "type=\"number\" disabled", format: "", label: "", placeHolder: "", columnDataName: "ProductId")
+
+                            @Html.CtrlInput(divSize: "single-input-whole", id: "nPrice", type: "type=\"number\"", format: "", label: "Precio de compra", placeHolder: "", columnDataName: "PriceBought")
+
+                            @Html.CtrlInput(divSize: "single-input-whole", id: "txtDate", type: "type=\"date\"", format: "", label: "Fecha de compra", placeHolder: "", columnDataName: "PurchaseDatetime")
+                            @Html.CtrlInput(divSize: "single-input-whole", id: "txtSerialNum", type: "type=\"number\"", format: "", label: "Número de serie", placeHolder: "", columnDataName: "SerialNumber")
+
+                            @Html.CtrlInput(divSize: "single-input-whole", id: "nQuantity", type: "type=\"number\"", format: "", label: "Cantidad comprada", placeHolder: "", columnDataName: "Quantity")
+
+                            <div class="single-input">
+                                @* Button *@
+                                @Html.CtrlButton(viewName: "CrudStock", id: "btnAdd", style: "ho-button", label: "Añadir unidades", onClickFunction: "AddStock")
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

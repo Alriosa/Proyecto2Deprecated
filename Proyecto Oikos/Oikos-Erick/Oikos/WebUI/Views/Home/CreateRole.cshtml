@@ -1,0 +1,43 @@
+﻿@using WebUI.Models.Helpers;
+<script src="~/Scripts/Views/CrudRole.js"></script>
+<script src="~/Scripts/Views/Categories.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateRole</h2>
+<div id="wrapper" class="container wrapper">
+    <div class="tab-content">
+        <form action="#" class="ho-form">
+            @Html.CtrlTable(viewName: "CrudRole", id: "tblRoles", title: "Roles", columnsTitle: "Id,Nombre,Estado", ColumnsDataName: "RoleId,Name,IsActive", onSelectFunction: "BindFields")
+            <div id="frmRole" class="ho-form-inner">
+                @Html.CtrlInput(divSize: "hidden", id: "inpId", type: "text", format: "text", label: "", placeHolder: "", columnDataName: "RoleId")
+                @Html.CtrlInput(divSize: "single-input single-input-half", id: "inpName", type: "text", format: "text", label: "Nombre del rol", placeHolder: "Nombre", columnDataName: "Name")
+                @Html.CtrlButton(viewName: "CrudRole", id: "btnCreate", style: "ho-button-dark", label: "Crear rol", onClickFunction: "Create")
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="viewsModal" tabindex="-1" role="dialog" aria-labelledby="Coordinates selector" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Agregar vistas a rol.</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @Html.CtrlCheckbox(id: "checkId", containerId: "checkboxCont", type: EntitiesPOJO.EntityTypes.Category)
+                @Html.CtrlButton(viewName: "CrudRole", id: "btnCheck", style: "ho-button-dark", label: "Agregar vistas", onClickFunction: "AddViewsToRole")
+            </div>
+            <div class="modal-footer d-inline-block">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btnChooseCoordinates" class="btn btn-info" data-dismiss="modal">Elegir ubicación</button>
+                <small id="lblChosenCoordinates"></small>
+            </div>
+        </div>
+    </div>
+</div>

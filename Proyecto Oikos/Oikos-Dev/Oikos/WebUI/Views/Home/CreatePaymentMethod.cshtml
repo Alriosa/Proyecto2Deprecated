@@ -1,0 +1,63 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/vPaymentMethod.js"></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "CreatePaymentMethod";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Registrar nuevo método de pago</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Crear nuevo método de pago</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                <div class="">
+                    <form class="ho-form" action="#" id="frmPaymentMethod">
+
+                        <div class="ho-form-inner">
+
+                            
+
+
+                            @Html.CtrlDropDown2(id: "drpPaymentMethod", listId: "paymentmethod", label: "Método de pago", style: "single-input single-input-half", columnDataName: "PaymentTypeCode")
+
+
+                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtValue", type: "type=\"number\"", format: "number", label: "Número de tarjeta", placeHolder: "", columnDataName: "Value")
+
+
+                            @* Hidden *@
+                            @Html.CtrlInput(divSize: "d-none", id: "txtPaymentMethodId", type: "type=\"number\"", format: "", label: "Id del Repartidor", placeHolder: "", columnDataName: "PaymentMethodId")
+
+                            @Html.CtrlInput(divSize: "d-none", id: "txtUserId", type: "type=\"number\"", format: "", label: "User Id", placeHolder: "", columnDataName: "UserId")
+                            @Html.CtrlInput(divSize: "d-none", id: "txtIsActive", type: "type=\"text\"", format: "", label: "Activo", placeHolder: "", columnDataName: "IsActive")
+
+                            
+
+
+                                @Html.CtrlButton(viewName: "vPaymentMethod", id: "btnCreate", style: "ho-button ho-button-dark", label: "Crear", onClickFunction: "Create")
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

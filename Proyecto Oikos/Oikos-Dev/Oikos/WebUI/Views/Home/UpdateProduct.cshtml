@@ -1,0 +1,153 @@
+﻿@using WebUI.Models.Helpers;
+
+<script src="~/Scripts/Views/CrudProduct.js"></script>
+<script src="~/Scripts/Views/maps.js"></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "Update Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_MenuStore");
+}
+
+<label id="whoAmI" class="d-none">update</label>
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Modificar producto</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Modificar producto</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                <div class="">
+                    <form action="#" class="ho-form" id="frmProductMedia">
+                        <div class="ho-form-inner">
+
+                            <div id="divImgProduct1" class="col-md-2 col-sm-12 uploadedImage">
+                                <img id="btnDeleteMedia1" class="btnDeleteMedia float-right" src="https://res.cloudinary.com/oikos-store/image/upload/v1542786829/delete-button.svg" alt="eliminar">
+                                <img id="imgProductMedia1" src="" alt="Imagen producto 1">
+                            </div>
+                            <div id="divImgProduct2" class="col-md-2 col-sm-12 uploadedImage">
+                                <img id="btnDeleteMedia2" class="btnDeleteMedia float-right" src="https://res.cloudinary.com/oikos-store/image/upload/v1542786829/delete-button.svg" alt="eliminar">
+                                <img id="imgProductMedia2" src="" alt="Imagen producto 2">
+                            </div>
+                            <div id="divImgProduct3" class="col-md-2 col-sm-12 uploadedImage">
+                                <img id="btnDeleteMedia3" class="btnDeleteMedia float-right" src="https://res.cloudinary.com/oikos-store/image/upload/v1542786829/delete-button.svg" alt="eliminar">
+                                <img id="imgProductMedia3" src="" alt="Imagen producto 3">
+                            </div>
+                            <div id="divImgProduct4" class="col-md-2 col-sm-12 uploadedImage">
+                                <img id="btnDeleteMedia4" class="btnDeleteMedia float-right" src="https://res.cloudinary.com/oikos-store/image/upload/v1542786829/delete-button.svg" alt="eliminar">
+                                <img id="imgProductMedia4" src="" alt="Imagen producto 4">
+                            </div>
+                            <div id="divImgProduct5" class="col-md-2 col-sm-12 uploadedImage">
+                                <img id="btnDeleteMedia5" class="btnDeleteMedia float-right" src="https://res.cloudinary.com/oikos-store/image/upload/v1542786829/delete-button.svg" alt="eliminar">
+                                <img id="imgProductMedia5" src="" alt="Imagen producto 5">
+                            </div>
+                            <div id="divBtnCloudinary" class="col-md-10 col-sm-12 mb-3">
+                                <button id="btnCloudinary" type="button" class="mt-3 ho-button ho-button-dark" onclick="showUploadWidget()">
+                                    <span id="txtBtnCloudinary">
+                                        Agregar imagen
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        @* Hidden *@
+                        @Html.CtrlInput(divSize: "d-none", id: "txtProductMediaUrl1", type: "type=\"text\" disabled", format: "", label: "ProductMediaId", placeHolder: "", columnDataName: "ProductMediaId")
+                        @Html.CtrlInput(divSize: "d-none", id: "txtProductMediaUrl1", type: "type=\"text\" disabled", format: "", label: "ProductMediaId", placeHolder: "", columnDataName: "ProductMediaId")
+                        @Html.CtrlInput(divSize: "d-none", id: "txtProductMediaUrl1", type: "type=\"text\" disabled", format: "", label: "ProductMediaId", placeHolder: "", columnDataName: "ProductMediaId")
+                        @Html.CtrlInput(divSize: "d-none", id: "txtProductMediaUrl1", type: "type=\"text\" disabled", format: "", label: "ProductMediaId", placeHolder: "", columnDataName: "ProductMediaId")
+
+
+                    </form>
+                    <div>
+                        <form action="#" class="ho-form" id="frmProduct">
+                            <div class="ho-form-inner">
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtName", type: "type=\"text\"", format: "", label: "Nombre:", placeHolder: "", columnDataName: "Name")
+
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtProductProviderName", type: "type=\"text\" disabled", format: "", label: "Proveedor:", placeHolder: "", columnDataName: "")
+
+                                @Html.CtrlTextArea(divSize: "single-input", id: "txtDescription", type: "type=\"text\"", format: "", label: "Descripción", placeHolder: "", columnDataName: "Description")
+
+                                @* Currency *@
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtCurrency", type: "type=\"text\" disabled", format: "", label: "Moneda", placeHolder: "", columnDataName: "")
+
+                                @* Selling price *@
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtSellingPrice", type: "type=\"text\"", format: "", label: "Precio de venta", placeHolder: "", columnDataName: "SellingPrice")
+
+                                @* Tax *@
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtTaxPercentage", type: "type=\"text\"", format: "", label: "Impuesto", placeHolder: "", columnDataName: "TaxPercentage")
+
+                                @* Hidden *@
+                                @Html.CtrlInput(divSize: "d-none", id: "txtProductId", type: "type=\"number\" disabled", format: "", label: "ID del producto", placeHolder: "", columnDataName: "ProductId")
+                                @Html.CtrlInput(divSize: "d-none", id: "txtStoreId", type: "type=\"number\" disabled", format: "", label: "ID de la tienda", placeHolder: "", columnDataName: "StoreId")
+                                @Html.CtrlInput(divSize: "d-none", id: "txtIsActive", type: "type=\"text\" disabled", format: "", label: "Status del producto", placeHolder: "", columnDataName: "IsActive")
+                                @Html.CtrlInput(divSize: "d-none", id: "txtProductProviderId", type: "type=\"text\" disabled", format: "", label: "Id Proveedor:", placeHolder: "", columnDataName: "ProductProviderId")
+
+                                @* <div class="single-input"> *@
+                                @*     $1$ Button #1# *@
+                                @*     @Html.CtrlButton(viewName: "Crud", id: "btnUpdate", style: "ho-button", label: "Modificar producto", onClickFunction: "validateAll") *@
+                                @* </div> *@
+
+                                <div class="col-12">
+                                    <div class="d-flex flex-row">
+                                        <div>
+                                            @Html.CtrlButton(viewName: "Crud", id: "btnCancel", style: "ho-button-dark", label: "Cancelar", onClickFunction: "Back")
+                                        </div>
+                                        <div>
+                                            @Html.CtrlButton(viewName: "Crud", id: "btnDelete", style: "ho-button", label: "Eliminar", onClickFunction: "Delete")
+                                        </div>
+                                        <div>
+                                            @Html.CtrlButton(viewName: "Crud", id: "btnUpdate", style: "ho-button", label: "Modificar producto", onClickFunction: "Update")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Map modal -->
+<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="Coordinates selector" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Elegir ubicación de la bodega</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @* Google maps coordinates selector *@
+                <div class="container">
+                    <div id="mapSelector"></div>
+                    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQSrrB_vyRukFOkul1HqvmyJ0GpPE1Agk&callback=initMap"></script>
+                </div>
+            </div>
+            <div class="modal-footer d-inline-block">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btnChooseCoordinates" class="btn btn-info" data-dismiss="modal">Elegir ubicación</button>
+                <small id="lblChosenCoordinates"></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Views/cloudinaryProduct.js"></script>

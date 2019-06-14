@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "StoreOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StoreOrders</h2>
+
+
+
+@using WebUI.Models.Helpers;
+
+<script src="~/Scripts/Views/StoreOrders.js"></script>
+<script src="~/Scripts/Views/maps.js"></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "StoreOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_MenuStore");
+}
+<label id="whoAmI" class="d-none">list</label>
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Listado de productos</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 ptb-30">
+            @Html.CtrlTable(viewName: "Crud", id: "tblOrders", title: "Orders",
+                columnsTitle: "1,2,3", ColumnsDataName: "UserName,UserEmail,OrderDatetime", onSelectFunction: "BindFields")
+        </div>
+    </div>
+</div>

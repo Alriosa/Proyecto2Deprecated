@@ -1,0 +1,48 @@
+﻿@using System.Collections
+@using WebUI.Models.Helpers
+<script src="~/Scripts/Views/StoreFront.js"></script>
+@{
+    ViewBag.Title = "Storefront";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <!--// Shop Page Area -->
+    <div class="page-content">
+
+    <div class="shop-page-area bg-white ptb-30">
+    <div class="container wrapper">
+
+    <div class="shop-page-products mt-30">
+    <div class="row no-gutters">
+
+        @Html.CtrlProductCard(storeId: 0)
+
+    </div>
+    </div>
+    </div>
+
+    <div class="cr-pagination pt-30 container">
+        <p>Mostrando 1-12 de 13 item(s)</p>
+        <ul>
+            <li>
+                <a href="shop-previous.html"><i class="ion ion-ios-arrow-back"></i> Anterior</a>
+            </li>
+            <li class="active">
+                <a href="2">1</a>
+            </li>
+            <li>
+                <a href="2.html">2</a>
+            </li>
+            <li>
+                <a href="shop-next.html">Siguente <i class="ion ion-ios-arrow-forward"></i></a>
+            </li>
+        </ul>
+    </div>
+
+    </div>
+    </div>
+    <!--// Shop Page Area -->
+}

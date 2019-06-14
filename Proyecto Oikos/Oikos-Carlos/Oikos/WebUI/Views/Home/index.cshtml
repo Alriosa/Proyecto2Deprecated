@@ -1,0 +1,280 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/Categories.js"></script>
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">Está usando un <strong>navegador desactualizado</strong>. Por favor <a href="https://browsehappy.com/">por favor actualizá a uno de los nuevos navegadores</a> para mejorar su experiencia y seguridad.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <!-- Wrapper -->
+    <div id="wrapper" class="wrapper">
+
+        <!-- Header -->
+        <header class="header header-2">
+            <!-- Header Middle Area -->
+            <div class="header-middle bg-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-6 col-sm-6 order-1 order-lg-1">
+                            <a href="index.html" class="header-logo">
+                                <img src="../../Content/Images/logo/logo-dark.png" alt="logo">
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-12 order-3 order-lg-2">
+                            <form action="#" class="header-searchbox">
+                                <select class="select-searchcategory">
+                                    <option value="0">Categorías (todas)</option>
+                                    <option value="1">Alimentación y bebidas</option>
+                                    <option value="2">Autos</option>
+                                    <option value="3">Bebidas</option>
+                                    <option value="4">Bebé</option>
+                                    <option value="5">Belleza</option>
+                                    <option value="6">Cocina</option>
+                                    <option value="7">Deportes</option>
+                                    <option value="8">Electónica</option>
+                                    <option value="9">Herramientas</option>
+                                    <option value="10">Hogar</option>
+                                    <option value="11">Instrumentos musicales</option>
+                                    <option value="12">Jardín</option>
+                                    <option value="13">Joyería</option>
+                                    <option value="14">Juguetes</option>
+                                    <option value="15">Libros</option>
+                                    <option value="16">Moda</option>
+                                    <option value="17">Motos</option>
+                                    <option value="18">Ropa</option>
+                                    <option value="19">Salud</option>
+                                    <option value="20">Videojuegos</option>
+                                    <option value="21">Zapatos</option>
+                                </select>
+                                <input type="text" placeholder="¿Qué buscás?">
+                                <button type="submit"><i class="lnr lnr-magnifier"></i></button>
+                            </form>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 order-2 order-lg-3">
+                            <div class="header-icons">
+                                <div class="header-account">
+                                    <button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> Mi cuenta <i class="ion ion-ios-arrow-down"></i></button>
+                                    <ul class="header-accountbox dropdown-list">
+                                        <li>
+                                            @Html.ActionLink("Iniciar sesión", "LoginRegister")
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="header-cart">
+                                    <a class="header-carticon" href="cart.html"><i class="lnr lnr-cart"></i><span id="cartCount" class="count d-none"></span></a>
+
+                                    <!-- Minicart -->
+                                    <div class="header-minicart minicart">
+                                        <div class="minicart-header">
+                                            <div class="minicart-product">
+                                                <div class="minicart-productimage">
+                                                    <a href="product-details.html">
+                                                        <img src="../../Content/Images/product/thumbnail/product-image-1.jpg" alt="product image">
+                                                    </a>
+                                                    <span class="minicart-productquantity">1x</span>
+                                                </div>
+                                                <div class="minicart-productcontent">
+                                                    <h6><a href="product-details.html">P-Series 4K UHD Dolby Vision HDR Roku Smart TV</a></h6>
+                                                    <span class="minicart-productprice">$43.00</span>
+                                                </div>
+                                                <button class="minicart-productclose"><i class="ion ion-ios-close-circle"></i></button>
+                                            </div>
+                                            <div class="minicart-product">
+                                                <div class="minicart-productimage">
+                                                    <a href="product-details.html">
+                                                        <img src="../../Content/Images/product/thumbnail/product-image-2.jpg" alt="product image">
+                                                    </a>
+                                                    <span class="minicart-productquantity">1x</span>
+                                                </div>
+                                                <div class="minicart-productcontent">
+                                                    <h6><a href="product-details.html">HD Video Recording PJ Handycam Camcorder</a></h6>
+                                                    <span class="minicart-productprice">$43.00</span>
+                                                </div>
+                                                <button class="minicart-productclose"><i class="ion ion-ios-close-circle"></i></button>
+                                            </div>
+                                        </div>
+                                        <ul class="minicart-pricing">
+                                            <li>Subtotal <span>$24.12</span></li>
+                                            <li>Impuestos <span>$7.00</span></li>
+                                            <li>Total (sin gastos de envío)<span>$31.12</span></li>
+                                        </ul>
+                                        <div class="minicart-footer">
+                                            <a href="cart.html" class="ho-button ho-button-fullwidth">
+                                                <span>Carrito</span>
+                                            </a>
+                                            <a href="checkout.html" class="ho-button ho-button-dark ho-button-fullwidth">
+                                                <span>Pagar</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!--// Minicart -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Header Middle Area -->
+            <!-- Header Bottom Area -->
+            <div class="header-bottom bg-white">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-10 col-md-5 col-sm-5">
+
+                            <!-- Category Menu -->
+                            <div id="catmenu" class="header-catmenu catmenu">
+                                <button class="catmenu-trigger">
+                                    <span>Categorías</span>
+                                </button>
+                                <nav class="catmenu-body">
+                                    <ul>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!--// Category Menu -->
+                            <!-- Navigation -->
+                            <!-- Navigation Home -->
+                            <nav class="ho-navigation ho-navigation-2">
+                                <ul>
+                                    <li>
+                                        <a href="index.html">Inicio</a>
+                                    </li>
+                                    <li>
+                                        <a href="product-requests.html">Solicitudes de productos</a>
+                                    </li>
+                                    <li>
+                                        <a href="store-registration.html">Creá tu tienda</a>
+                                    </li>
+                                    <li>
+                                    <li>
+                                        @Html.ActionLink("Distribuí", "ShippingProviderManager")
+                                    </li>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">Ayuda</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <!--// Navigation -->
+
+                        </div>
+                        <div class="col-lg-2 col-md-5 col-sm-5">
+                            <div class="header-contactinfo">
+                                <i class="flaticon-support"></i>
+                                <span>Llamanos:</span>
+                                <a href="tel:800-OIKOS-NOW">800-OIKOS-NOW</a>
+                            </div>
+                        </div>
+                        <div class="col-12 d-block d-lg-none">
+                            <div class="mobile-menu clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Header Bottom Area -->
+
+        </header>
+        <!--// Header -->
+        <!-- Page Content -->
+        <main class="page-content">
+
+            <!--// Shop Page Area -->
+            <div id="wrapper" class="wrapper">
+                @{Html.RenderPartial("Store");}
+            </div>
+            <!--// Shop Page Area -->
+
+        </main>
+
+        <!--// Page Content -->
+        <!-- Footer -->
+        <footer class="footer bg-white">
+
+            <!-- Footer Top Area -->
+            <div class="footer-toparea">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-12">
+                            <div class="footer-widget widget-info">
+                                <h5 class="footer-widget-title">Contacto</h5>
+                                <ul>
+                                    <li><i class="ion ion-ios-pin"></i> San José, Costa Rica</li>
+                                    <li><i class="ion ion-ios-call"></i> 800-OIKOS-NOW</li>
+                                    <li><i class="ion ion-ios-mail"></i> <a href="contact.html">ayuda@oikos.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget widget-links">
+                                <h5 class="footer-widget-title">Nuestra compañía</h5>
+                                <ul>
+                                    <li><a href="#">Creá tu tienda</a></li>
+                                    <li><a href="#">Repartí productos</a></li>
+                                    <li><a href="#">Acerca de Oikos</a></li>
+                                    <li><a href="#">Términos de uso</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget widget-links">
+                                <h5 class="footer-widget-title">Mi cuenta</h5>
+                                <ul>
+                                    <li><a href="account.html">Mi cuenta</a></li>
+                                    <li><a href="orders.html">Mis órdenes</a></li>
+                                    <li><a href="product-requests.html">Mis solicitudes</a></li>
+                                    <li><a href="contact.html">Ayuda</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+
+                        </div>
+
+                        <div class="col-lg-3 col-12">
+                            <div class="footer-widget widget-customerservice">
+                                <div class="info">
+                                    <h5 class="footer-widget-title">PAGOS SEGUROS VÍA</h5>
+                                </div>
+                                <div class="payment">
+                                    <img src="../../Content/Images/icons/payment.png" alt="footer payment">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Footer Top Area -->
+            <!-- Footer Bottom -->
+            <div class="footer-bottomarea">
+                <div class="container">
+                    <div class="footer-copyright">
+                        <p class="copyright">2018 &copy; Comercializadora y Distribuidora Centroamericana, S.A.</p>
+                    </div>
+                </div>
+            </div>
+            <!--// Footer Bottom -->
+        </footer>
+        <!--// Footer -->
+
+    </div>
+    <!--// Wrapper -->
+<!-- Js Files -->
+
+</body>
+<script>
+    $(document).ready(function () {
+        var cats = new Categories();
+        cats.GenerateCatMenu();
+    });
+</script>

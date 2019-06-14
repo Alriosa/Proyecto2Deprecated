@@ -1,0 +1,85 @@
+﻿@using WebUI.Models.Helpers
+<script src="~/Scripts/Views/CrudProductProvider.js"></script>
+
+@{
+    ViewBag.Title = "ProductProvider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_MenuStore");
+}
+
+
+<label id="whoAmI" class="d-none">create</label>
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Registrar nuevo producto</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div id="wrapper" class="container wrapper">
+        <div class="row">
+            <div class="col-12 my-account-area ptb-30">
+
+                <h2>Crear proveedor</h2>
+                <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                    <div class="myaccount-details">
+                        <form action="#" class="ho-form">
+                            <div class="ho-form-inner" id="frmProductProvider">
+
+                                @*StoreId*@
+                                @*@Html.CtrlInput(divSize: "single-input single-input-half", id: "txtStoreId", type: "type=\"number\"", format: "", label: "Id de la tienda", placeHolder: "", columnDataName: "StoreId")*@
+
+                                @*Name*@
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtName", type: "type=\"text\"", format: "", label: "Nombre", placeHolder: "", columnDataName: "Name")
+
+                                @*Id*@
+                                @Html.CtrlInput(divSize: "single-input", id: "txtId", type: "type=\"number\"", format: "", label: "Identificacion", placeHolder: "", columnDataName: "ProviderId")
+
+                                @*Location*@
+                                @Html.CtrlInput(divSize: "single-input", id: "txtLocation", type: "type=\"text\"", format: "", label: "Direccion", placeHolder: "", columnDataName: "Address")
+
+                                @*ProviderType*@
+                                @Html.CtrlDropDown2(id: "drpProviderType", label: "Tipo de Proveedor", listId: "provider", style: "single-input single-input-half", columnDataName: "ProviderType")
+
+                                @* Phone *@
+                                @Html.CtrlInput(divSize: "single-input", id: "txtPhone", type: "type=\"text\"", format: "", label: "Phone", placeHolder: "", columnDataName: "Phone")
+
+                                @* Email *@
+                                @Html.CtrlInput(divSize: "single-input", id: "txtEmail", type: "type=\"Email\"", format: "", label: "Email", placeHolder: "", columnDataName: "Email")
+
+                                <div class="col-12">
+                                    <div class="d-flex align-self-center">
+                                        <div class="">
+                                            @Html.CtrlButton(viewName: "Crud", id: "btnCancel", style: "ho-button ho-button-dark", label: "Cancelar", onClickFunction: "Back")
+                                        </div>
+                                        <div class="">
+                                            @* Button *@
+                                            @Html.CtrlButton(viewName: "Crud", id: "btnCreate", style: "ho-button align-self-center", label: "Registrar proveedor", onClickFunction: "Validate")
+                                        </div>
+                                        <div id="alertMessage" class="alertMessage d-none">
+                                            <p class="">Por favor verificá los campos en rojo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

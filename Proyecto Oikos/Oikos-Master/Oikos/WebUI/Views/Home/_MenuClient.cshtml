@@ -1,0 +1,143 @@
+﻿ <!-- Header -->
+<script src="~/Scripts/Views/indexManager.js"></script>
+<header class="header header-2">
+    <!-- Header Middle Area -->
+    <div class="header-middle bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-6 col-sm-6 order-1 order-lg-1">
+                    <a href="index" class="header-logo">
+                        <img src="../../Content/Images/logo/logo-dark.png" alt="logo">
+                    </a>
+                </div>
+                <div class="col-lg-6 col-12 order-3 order-lg-2">
+                    <form action="#" class="header-searchbox">
+                        <select class="select-searchcategory">
+                            <option value="0">Categorías (todas)</option>
+                            <option value="1">Alimentación y bebidas</option>
+                            <option value="2">Autos</option>
+                            <option value="3">Bebidas</option>
+                            <option value="4">Bebé</option>
+                            <option value="5">Belleza</option>
+                            <option value="6">Cocina</option>
+                            <option value="7">Deportes</option>
+                            <option value="8">Electónica</option>
+                            <option value="9">Herramientas</option>
+                            <option value="10">Hogar</option>
+                            <option value="11">Instrumentos musicales</option>
+                            <option value="12">Jardín</option>
+                            <option value="13">Joyería</option>
+                            <option value="14">Juguetes</option>
+                            <option value="15">Libros</option>
+                            <option value="16">Moda</option>
+                            <option value="17">Motos</option>
+                            <option value="18">Ropa</option>
+                            <option value="19">Salud</option>
+                            <option value="20">Videojuegos</option>
+                            <option value="21">Zapatos</option>
+                        </select>
+                        <input type="text" placeholder="¿Qué buscás?">
+                        <button type="submit"><i class="lnr lnr-magnifier"></i></button>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 order-2 order-lg-3">
+                    <div class="header-icons">
+                        <div class="header-account">
+                            <button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> <span style="font-size: 16px" id="txtUserName">Inicio</span>  <i class="ion ion-ios-arrow-down"></i></button>
+                            <ul class="header-accountbox dropdown-list" id="offlineOpt">
+                                <li>
+                                    @Html.ActionLink("Iniciar sesión", "LoginRegister")
+                                </li>
+                            </ul>
+                            <ul class="header-accountbox dropdown-list" id="onlineOpt" class="d-none">
+                                <li>
+                                    @Html.ActionLink("Cerrar sesión", "LoginRegister")
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header-cart">
+                            <a class="header-carticon" href="ShoppingCart"><i class="lnr lnr-cart"></i><span id="cartCount" class="count d-none"></span></a>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Header Middle Area -->
+    <!-- Header Bottom Area -->
+    <div class="header-bottom bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-10 col-md-5 col-sm-5">
+
+                    <!-- Category Menu -->
+                    <div id="catmenu" class="header-catmenu catmenu">
+                        <button class="catmenu-trigger">
+                            <span>Categorías</span>
+                        </button>
+                        <nav class="catmenu-body">
+                            <ul></ul>
+                        </nav>
+                    </div>
+                    <!--// Category Menu -->
+                    <!-- Navigation -->
+                    <!-- Navigation Home -->
+                    <nav class="ho-navigation ho-navigation-2">
+                        <ul id="offlineOptions">
+                            <li>
+                                <a href="index">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="LoginRegister">Solicitudes de productos</a>
+                            </li>
+                            <li>
+                                <a href="CreateUser">Creá tu tienda</a>
+                            </li>
+                            <li>
+                                <li>
+                                    <a href="CreateUser">Distribuí</a>
+                                </li>
+                            </li>
+                            <li>
+                                <a href="">Ayuda</a>
+                            </li>
+                        </ul>
+                        <ul id="onlineOptions" class="d-none">
+                            <li>
+                                <a href="index">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="CreateProductRequest">Solicitudes de productos</a>
+                            </li>
+                            <li>
+                                <li>
+                                    <a href="CompareOffers">Comparar ofertas de producto</a>
+                                </li>
+                            </li>
+                            <li>
+                                <a href="UserContact">Añadir datos de contacto</a>
+                            </li>
+                            <li>
+                                <a href="">Ayuda</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--// Navigation -->
+                </div>
+                <div class="col-lg-2 col-md-5 col-sm-5">
+                    <div class="header-contactinfo">
+                        <i class="flaticon-support"></i>
+                        <span>Llamanos:</span>
+                        <a href="tel:800-OIKOS-NOW">800-OIKOS-NOW</a>
+                    </div>
+                </div>
+                <div class="col-12 d-block d-lg-none">
+                    <div class="mobile-menu clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Header Bottom Area -->
+
+</header>
+<!--// Header -->

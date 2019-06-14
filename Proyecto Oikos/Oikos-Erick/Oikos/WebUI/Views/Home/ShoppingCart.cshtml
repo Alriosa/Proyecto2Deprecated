@@ -1,0 +1,120 @@
+﻿@using WebUI.Models.Helpers
+<script src="~/Scripts/Views/ShoppingCart.js"></script>
+
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <label id="whoAmI" class="d-none">cart</label>
+
+        <!-- Wrapper -->
+    <div id="wrapper" class="wrapper">
+
+        <!-- Omitir hacia arriba -->
+        <!-- Breadcrumb Area -->
+        <div class="breadcrumb-area bg-grey">
+            <div class="container">
+                <div class="ho-breadcrumb">
+                    <ul>
+                        <li>
+                            <a href="/">Inicio</a>
+                        </li>
+                        <li>Carrito de Compras</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Breadcrumb Area -->
+        
+        @* Progress bar *@
+        <div id="progressBar" class="progressbar-container">
+            <ul class="progressbar">
+                <li class="active">Carrito</li>
+                <li class="">Elegir envío</li>
+                <li class="">Pago</li>
+                <li class="">Orden finalizada</li>
+            </ul>
+        </div>
+
+        <!-- Page Content -->
+        <main  id="page-content" class="page-content">
+
+            <!-- Shopping Cart Area -->
+            <div class="cart-page-area ptb-30 bg-white">
+                <div class="container">
+
+                    <!-- Cart Products -->
+                    <div class="cart-table table-responsive">
+                        <table id="shoppingCart" class="table table-responsive table-hover mb-0">
+                            <thead>
+                            <tr>
+                                <th class="cart-column-image" scope="col"></th>
+                                <th class="cart-column-productname" scope="col">PRODUCTO</th>
+                                <th class="cart-column-price" scope="col">PRECIO</th>
+                                <th class="cart-column-quantity" scope="col">CANTIDAD</th>
+                                <th class="cart-column-total" scope="col">SUBTOTAL</th>
+                                <th class="cart-column-remove" scope="col">ELIMINAR</th>
+                            </tr>
+                            </thead>
+                            <tbody id="cartItemsList"></tbody>
+                        </table>
+                    </div>
+                    <!--// Cart Products -->
+                    <!-- Cart Content -->
+                    <div class="cart-content">
+                        <div class="row justify-content-between">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="cart-content-left">
+                                    <div class="ho-buttongroup">
+                                        <a href="/" class="ho-button ho-button-dark">
+                                            <span>Seguir comprando</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12">
+                                <div class="cart-content-right">
+                                    <h2>SUBTOTAL DE LA ORDEN</h2>
+                                    <table class="cart-pricing-table">
+                                        <tbody>
+                                        <tr class="cart-subtotal">
+                                            <th>Subtotal</th>
+                                            <td id="txtSubtotal"></td>
+                                        </tr>
+                                        <tr class="cart-subtotal">
+                                            <th>Impuestos</th>
+                                            <td id="txtTaxes"></td>
+                                        </tr>
+                                        @* <tr class="cart-shipping"> *@
+                                        @*     <th>ENVÍO</th> *@
+                                        @*     <td id="txtShippingCost"></td> *@
+                                        @* </tr> *@
+                                        <tr class="cart-total">
+                                            <th>SUBTOTAL (i.v.i.)</th>
+                                            <td id="txtTotal"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <a href="#" class="ho-button">
+                                        <span>Elegir método de envío</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// Cart Content -->
+
+                </div>
+            </div>
+            <!--// Shopping Cart Area -->
+            <!-- Omitir hacia abajo -->
+
+        </main>
+        <!--// Wrapper -->
+    </div>
+
+    }

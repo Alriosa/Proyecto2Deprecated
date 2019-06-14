@@ -1,0 +1,160 @@
+﻿@using WebUI.Models.Helpers;
+
+<script src="~/Scripts/Views/CrudStore.js"></script>
+<script src="~/Scripts/Views/mapsFixedPin.js"></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "updateManager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_MenuAdmin");
+}
+
+<label id="whoAmI" class="d-none">list</label>
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Listado de tiendas</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            @Html.CtrlTable(viewName: "Crud", id: "tblStores", title: "Tiendas",
+            columnsTitle: "ID,Identificación,Nombre,ID Propietario,Lat,Lng,Logo,Descripción,Moneda,Estado,Comisión,Creación", ColumnsDataName: "StoreId,Identification,Name,Owner,WarehouseLatitude,WarehouseLongitude,Logo,Description,CurrencyCode,StoreStatusCode,Commission,CreationDate", onSelectFunction: "BindFields")
+        </div>
+
+    </div>
+    <div class="col-12">
+        <div class="d-flex flex-row">
+            <div>
+                @Html.CtrlButton(viewName: "Crud", id: "btnCancel", style: "ho-button-dark", label: "Atrás", onClickFunction: "Back")
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="Update" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Detalle de tienda</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 my-account-area ptb-30">
+                    <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                        <div class="">
+                            <form action="#" class="ho-form" id="">
+                                <div id="frmStore" class="ho-form-inner">
+
+                                    <div id="divStoreLogo" class="col-md-5 col-sm-12">
+                                        <img id="imgStoreLogo" src="" alt="Logo">
+                                    </div>
+                                    <div class="col-md-5 col-sm-12">
+
+                                    </div>
+                                    <div class="col-md-2 col-sm-12">
+                                        <span id="suspend" class="badge badge-pill badge-danger">SUSPENDIDA</span>
+                                    </div>
+
+                                    @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtIdentification", type: "type=\"text\" disabled", format: "", label: "Cédula jurídica", placeHolder: "", columnDataName: "Identification")
+
+                                    @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtName", type: "type=\"text\" disabled", format: "", label: "Nombre de la tienda", placeHolder: "", columnDataName: "Name")
+
+                                    @Html.CtrlTextArea(divSize: "single-input", id: "txtDescription", type: "disabled", format: "", label: "Descripción", placeHolder: "", columnDataName: "Description")
+
+                                    @* Commission *@
+                                    @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtCommission", type: "type=\"number\"  min=\"0\" ", format: "", label: "Modificar porcentaje de comisión", placeHolder: "", columnDataName: "Commission")
+
+                                    @* Currency *@
+                                    @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtName", type: "type=\"text\" disabled", format: "", label: "Moneda de la tienda", placeHolder: "", columnDataName: "CurrencyCode")
+
+                                    @* Map coordinates *@
+                                    @Html.CtrlInput(divSize: "single-input single-input-half single-input-quarter", id: "txtWarehouseCoordinates", type: "type=\"text\" disabled", format: "", label: "Coordenadas de la bodega", placeHolder: "", columnDataName: "")
+
+                                    @* Hidden *@
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtLogo", type: "type=\"text\" disabled", format: "", label: "Logo", placeHolder: "", columnDataName: "Logo")
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtStoreId", type: "type=\"number\"", format: "", label: "ID de la tienda", placeHolder: "", columnDataName: "StoreId")
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtOwnerId", type: "type=\"number\"", format: "", label: "Owner ID", placeHolder: "", columnDataName: "Owner")
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtStoreStatusCode", type: "type=\"text\"", format: "", label: "Status de tienda", placeHolder: "", columnDataName: "StoreStatusCode")
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtWarehouseLatitude", type: "type=\"number\"", format: "", label: "WarehouseLatitude", placeHolder: "", columnDataName: "WarehouseLatitude")
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtWarehouseLongitude", type: "type=\"number\"", format: "", label: "Warehouse Longitude", placeHolder: "", columnDataName: "WarehouseLongitude")
+
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtCreationDate", type: "type=\"datetime\"", format: "", label: "Fecha de creación", placeHolder: "", columnDataName: "CreationDate")
+
+                                    <!-- Modals trigger buttons -->
+                                    <div class="single-input">
+                                        <div class="d-inline-block">
+                                            <button type="button" class="ho-button ho-button-dark" data-toggle="modal" data-target="#mapModal" onclick="reloadMarker()">
+                                                <span>
+                                                    Ver ubicación bodega
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        <div class="d-flex flex-row">
+                                            <div>
+                                                @Html.CtrlButton(viewName: "Crud", id: "btnCancel\" data-dismiss=\"modal\"", style: "ho-button-dark", label: "Atrás", onClickFunction: "")
+                                            </div>
+                                            <div>
+                                                @Html.CtrlButton(viewName: "Crud", id: "btnDelete", style: "ho-button", label: "Eliminar", onClickFunction: "Delete")
+                                            </div>
+                                            <div>
+                                                @Html.CtrlButton(viewName: "Crud", id: "btnSuspend", style: "ho-button", label: "Suspender", onClickFunction: "Suspend")
+                                            </div>
+                                            <div>
+                                                @Html.CtrlButton(viewName: "Crud", id: "btnUpdate", style: "ho-button ", label: "Modificar comisión", onClickFunction: "Update")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Map modal -->
+<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="Coordinates selector" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Ubicación de la bodega</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @* Google maps coordinates selector *@
+                <div class="container">
+                    <div id="mapSelector"></div>
+                    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQSrrB_vyRukFOkul1HqvmyJ0GpPE1Agk&callback=initMap"></script>
+                </div>
+            </div>
+            <div class="modal-footer d-inline-block">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Views/cloudinaryStore.js"></script>

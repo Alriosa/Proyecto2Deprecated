@@ -1,0 +1,47 @@
+﻿@using WebUI.Models.Helpers
+<script src="~/Scripts/Views/Storefront.js"></script>
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <!--// Shop Page Area -->
+    <div id="content" class="page-content">
+       <div class="shop-page-area bg-white ptb-30">
+           <div class="container wrapper">
+               
+               <div id="divIsStore" class="row">
+                   <div class="col-2 col-md-3 col-sm-5">
+                       <img id="imgStorefrontLogo" src=""/>
+                       <h3 id="lblStoreName"></h3>
+                   </div>
+               </div>
+               <div id="alert"></div>
+               <div class="shop-page-products mt-30">
+                   @* The next <p> is needed to catch the formatted selling price and placing it into each product card. DO NOT DELETE*@
+                   <p id="txtSellingPrice" class="d-none" contenteditable="true"></p>
+                   <div id="storeFront" class="row no-gutters">
+
+                   </div>
+                   <div class="col-12">
+                       <div class="d-flex align-self-center">
+                           <div class="">
+                               @Html.CtrlButton(viewName: "Storefront", id: "loadMore", style: "ho-button align-self-center", label: "Ver más", onClickFunction: "shouldShowMore")
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+            @* Incluir si se quiere mostrar cantidad de resultados *@
+            @* <div class="cr-pagination pt-30 container"> *@
+            @*     <p>Mostrando n de 13 item(s)</p> *@
+            @* </div> *@
+
+        </div>
+    </div>
+
+}

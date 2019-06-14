@@ -1,0 +1,79 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/vProductRequestResponses.js"></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+<script src="~/Scripts/validate.min.js"></script>
+
+@{
+    ViewBag.Title = "ListAllProductRequest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Registrar nueva oferta de producto</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Crear nueva oferta</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                <div class="">
+                    <form class="ho-form" action="#" id="frmProductRequestResponses">
+
+                        <div class="ho-form-inner">
+
+                            <div id="divShippingProviderLogo" class="col-md-2 col-sm-12">
+                                <img id="imgShippingProviderLogo" src="" alt="Logo">
+                            </div>
+                            <div class="col-md-10 col-sm-12">
+                                <button id="btnCloudinary" type="button" class="mt-3 ho-button ho-button-dark" onclick="showUploadWidget(false)">
+                                    <span>
+                                        Agregar Imagen
+                                    </span>
+                                </button>
+                            </div>
+
+
+                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtPrice", type: "type=\"number\"", format: "number", label: "Precio", placeHolder: "", columnDataName: "Price")
+
+
+                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtQuantity", type: "type=\"number\"", format: "text", label: "Cantidad", placeHolder: "", columnDataName: "Quantity")
+
+
+                            @Html.CtrlTextArea(divSize: "single-input single-input-half", id: "txtDescription", type: "type=\"text\"", format: "text", label: "Descripción del Producto", placeHolder: "", columnDataName: "Description")
+
+
+                            @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtDate", type: "type=\"date\"", format: "text", label: "Fecha Oferta", placeHolder: "", columnDataName: "ResponseDatetime")
+
+                            @* Hidden *@
+                            @Html.CtrlInput(divSize: "d-none", id: "txtProductRequestResponseId", type: "type=\"number\"", format: "", label: "Id de Oferta de Producto", placeHolder: "", columnDataName: "ProductRequestResponseId")
+
+                            @Html.CtrlInput(divSize: "d-none", id: "txtProductRequestId", type: "type=\"number\"", format: "", label: "ID Solicitud de Producto", placeHolder: "", columnDataName: "ProductRequestId")
+
+                            @Html.CtrlInput(divSize: "d-none", id: "txtProductId", type: "type=\"number\"", format: "", label: "ID Procucto", placeHolder: "", columnDataName: "ProductId")
+
+                            @Html.CtrlInput(divSize: "d-none", id: "txtIsAccepted", type: "type=\"number\"", format: "", label: "Aceptado", placeHolder: "", columnDataName: "IsAccepted")
+
+
+
+                            @Html.CtrlButton(viewName: "vProductRequestResponses", id: "btnCreate", style: "ho-button ho-button-dark", label: "Crear", onClickFunction: "Create")
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

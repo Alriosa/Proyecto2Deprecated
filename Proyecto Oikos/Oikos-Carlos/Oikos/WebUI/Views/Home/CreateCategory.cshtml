@@ -1,0 +1,28 @@
+﻿@using WebUI.Models.Helpers;
+<script src="~/Scripts/Views/CrudCategory.js"></script>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_MenuAdmin");
+}
+
+
+<div id="wrapper" class="container wrapper">
+    <h2>Categorías</h2>
+    <div class="tab-content">
+        @Html.CtrlTable(viewName: "CrudCategory", id: "tblCategories", title: "Categorías", columnsTitle: "Id,Nombre,Descripción,Estado", ColumnsDataName: "CategoryId,Name,Description,IsActive", onSelectFunction: "BindFields")
+        <form action="#" class="ho-form" id="frmCategory">
+            <div class="ho-form-inner">
+                @Html.CtrlInput(divSize: "hidden", id: "inpId", type: "text", format: "text", label: "Id de la categoria", placeHolder: "Id", columnDataName: "CategoryId")
+                @Html.CtrlInput(divSize: "single-input single-input-half mb-30", id: "inpName", type: "type=\"text\"", format: "text", label: "Nombre de la categoría", placeHolder: "Nombre", columnDataName: "Name")
+                @Html.CtrlInput(divSize: "single-input single-input-half", id: "inpDescription", type: "type=\"text\"", format: "text", label: "Descripción de la categoría", placeHolder: "Descripción", columnDataName: "Description")
+                @Html.CtrlInput(divSize: "hidden", id: "inpIsActive", type: "text", format: "text", label: "Descripción de la categoría", placeHolder: "Estado", columnDataName: "IsActive")
+                
+               
+                @Html.CtrlButton(viewName: "CrudCategory", id: "btnDelete", style: "ho-button-dark", label: "Eliminar categoría", onClickFunction: "Delete")
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/Categories.js"></script>
+<script src="~/Scripts/Views/indexManager.js"></script>
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">Está usando un <strong>navegador desactualizado</strong>. Por favor <a href="https://browsehappy.com/">por favor actualizá a uno de los nuevos navegadores</a> para mejorar su experiencia y seguridad.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <!-- Wrapper -->
+    <div id="wrapper" class="wrapper">
+
+        @{
+            Html.RenderPartial("_MenuClient");
+        }
+
+        <!-- Page Content -->
+        <main class="page-content">
+
+            <!--// Shop Page Area -->
+            <div id="wrapper" class="wrapper">
+                @{Html.RenderPartial("Store");}
+            </div>
+            <!--// Shop Page Area -->
+
+        </main>
+
+        <!--// Page Content -->
+        <!-- Footer -->
+        <footer class="footer bg-white">
+
+            <!-- Footer Top Area -->
+            <div class="footer-toparea">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-12">
+                            <div class="footer-widget widget-info">
+                                <h5 class="footer-widget-title">Contacto</h5>
+                                <ul>
+                                    <li><i class="ion ion-ios-pin"></i> San José, Costa Rica</li>
+                                    <li><i class="ion ion-ios-call"></i> 800-OIKOS-NOW</li>
+                                    <li><i class="ion ion-ios-mail"></i> <a href="contact.html">ayuda@oikos.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget widget-links">
+                                <h5 class="footer-widget-title">Nuestra compañía</h5>
+                                <ul>
+                                    <li><a href="#">Creá tu tienda</a></li>
+                                    <li><a href="#">Repartí productos</a></li>
+                                    <li><a href="#">Acerca de Oikos</a></li>
+                                    <li><a href="#">Términos de uso</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget widget-links">
+                                <h5 class="footer-widget-title">Mi cuenta</h5>
+                                <ul>
+                                    <li><a href="account.html">Mi cuenta</a></li>
+                                    <li><a href="orders.html">Mis órdenes</a></li>
+                                    <li><a href="product-requests.html">Mis solicitudes</a></li>
+                                    <li><a href="contact.html">Ayuda</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+
+                        </div>
+
+                        <div class="col-lg-3 col-12">
+                            <div class="footer-widget widget-customerservice">
+                                <div class="info">
+                                    <h5 class="footer-widget-title">PAGOS SEGUROS VÍA</h5>
+                                </div>
+                                <div class="payment">
+                                    <img src="../../Content/Images/icons/payment.png" alt="footer payment">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Footer Top Area -->
+            <!-- Footer Bottom -->
+            <div class="footer-bottomarea">
+                <div class="container">
+                    <div class="footer-copyright">
+                        <p class="copyright">2018 &copy; Comercializadora y Distribuidora Centroamericana, S.A.</p>
+                    </div>
+                </div>
+            </div>
+            <!--// Footer Bottom -->
+        </footer>
+        <!--// Footer -->
+
+    </div>
+    <!--// Wrapper -->
+<!-- Js Files -->
+
+</body>
+<script>
+    $(document).ready(function () {
+        var cats = new Categories();
+        cats.GenerateCatMenu();
+    });
+</script>

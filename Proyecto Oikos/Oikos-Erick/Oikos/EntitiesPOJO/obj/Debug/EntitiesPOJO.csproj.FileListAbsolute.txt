@@ -1,0 +1,9 @@
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\bin\Debug\EntitiesPOJO.dll
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\bin\Debug\EntitiesPOJO.pdb
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\bin\Debug\Newtonsoft.Json.dll
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\bin\Debug\Newtonsoft.Json.xml
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\obj\Debug\EntitiesPOJO.csprojAssemblyReference.cache
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\obj\Debug\EntitiesPOJO.csproj.CoreCompileInputs.cache
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\obj\Debug\EntitiesPOJO.csproj.CopyComplete
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\obj\Debug\EntitiesPOJO.dll
+D:\Alriosa Code\ProyectoOikos\Proyecto Oikos\Oikos-Erick\Oikos\EntitiesPOJO\obj\Debug\EntitiesPOJO.pdb

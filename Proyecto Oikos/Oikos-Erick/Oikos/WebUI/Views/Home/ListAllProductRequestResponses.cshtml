@@ -1,0 +1,102 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/vProductRequestResponses.js"></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "ListAllProductRequest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    Html.RenderPartial("_MenuStore");
+}
+
+
+
+
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            @Html.CtrlTable(viewName: "vProductRequestResponses", id: "tblProductRequestResponses", title: "Ofertas de Producto", columnsTitle: "Id,Id solicitud de producto,Id Usuario,Precio,Cantidad,Descripción,Fecha,Aceptada", ColumnsDataName: "ProductRequestResponseId,ProductRequestId,ProductId,Price,Quantity,Description,ResponseDatetime,IsAccepted", onSelectFunction: "BindFields")
+        </div>
+    </div>
+</div>
+
+<!-- Purchase modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="Show" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Ver Solicitud</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 my-account-area ptb-30">
+                    <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                        <div class="">
+                            <form action="#" class="ho-form" id="frmShippingProvider">
+                                <div id="" class="ho-form-inner">
+
+                                    <div id="divShippingProviderLogo" class="col-md-5 col-sm-12">
+                                        <img id="imgShippingProviderLogo" src="" alt="Logo">
+                                    </div>
+                                    <div class="col-md-5 col-sm-12">
+                                        <button id="btnCloudinary" type="button" class="mt-3 ho-button ho-button-dark" onclick="showUploadWidget(false)">
+                                            <span>
+                                                Cambiar logotipo
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-2 col-sm-12">
+                                        <span id="suspend" class="badge badge-pill badge-danger">SUSPENDIDA</span>
+                                    </div>
+
+                                    @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtPrice", type: "type=\"number\"", format: "number", label: "Precio", placeHolder: "", columnDataName: "Price")
+
+
+                                    @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtQuantity", type: "type=\"number\"", format: "number", label: "Cantidad", placeHolder: "", columnDataName: "Quantity")
+
+
+                                    @Html.CtrlTextArea(divSize: "single-input single-input-half", id: "txtDescription", type: "type=\"text\"", format: "text", label: "Descripción del Producto", placeHolder: "", columnDataName: "Description")
+
+
+                                    @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtDate", type: "type=\"date\"", format: "date", label: "Fecha Oferta", placeHolder: "", columnDataName: "ResponseDatetime")
+
+                                    @* Hidden *@
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtProductRequestResponseId", type: "type=\"number\"", format: "", label: "Id de Oferta de Producto", placeHolder: "", columnDataName: "ProductRequestResponseId")
+
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtProductRequestId", type: "type=\"number\"", format: "", label: "ID Solicitud de Producto", placeHolder: "", columnDataName: "ProductRequestId")
+
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtProductId", type: "type=\"number\"", format: "", label: "ID Procucto", placeHolder: "", columnDataName: "ProductId")
+
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtIsAccepted", type: "type=\"number\"", format: "", label: "Aceptado", placeHolder: "", columnDataName: "IsAccepted")
+
+                                    <!-- Modals trigger buttons -->
+
+
+                                    <div class="d-flex flex-row">
+                                        <div>
+                                            @Html.CtrlButton(viewName: "vProductRequestResponses", id: "btnCancel\" data-dismiss=\"modal", style: "ho-button-dark", label: "Cancelar", onClickFunction: "Back")
+                                        </div>
+
+                                        <div>
+                                            @Html.CtrlButton(viewName: "vProductRequestResponses", id: "btnCancel\" data-dismiss=\"modal", style: "ho-button", label: "Comprar", onClickFunction: "Purchase")
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="~/Scripts/Views/cloudinaryShippingProvider.js"></script>
+</div>

@@ -1,0 +1,17 @@
+﻿@model EntitiesPOJO.ShippingProvider
+<script src="~/Scripts/Views/vShippingProviders.js"></script>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="wrapper" class="container wrapper">
+    @{Html.RenderPartial("CreateShippingProvider");}
+    @{Html.RenderPartial("RetrieveAllShippingProviders");}
+</div>
+
+
+
+
+<a href="~/Views/ShippingProviderManager.cshtml">~/Views/@*ShippingProviderManager*@.cshtml</a>

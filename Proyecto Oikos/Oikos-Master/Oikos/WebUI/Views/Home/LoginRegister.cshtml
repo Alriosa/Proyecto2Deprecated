@@ -1,0 +1,85 @@
+﻿@using WebUI.Models.Helpers
+<script src="../../Scripts/Views/LogIn.js"></script>
+@{
+    ViewBag.Title = "LoginRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+    <!-- Omitir todo hacia arriba -->
+    <!-- Breadcrumb Area -->
+    <div class="breadcrumb-area bg-grey">
+        <div class="container">
+            <div class="ho-breadcrumb">
+                <ul>
+                    <li>@Html.ActionLink("Inicio", "index")</li>
+                    <li>Inicio de sesión / Registrar nueva cuenta</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--// Breadcrumb Area -->
+    <!-- Page Content -->
+    <main class="page-content">
+
+        <!-- My Account Page -->
+        <div class="my-account-area ptb-30">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Login Form -->
+                    <div class="col-lg-6">
+                        <div class="login-form-wrapper">
+                            <h5>Iniciar sesión</h5>
+                            <form id="frmLogin" action="#" class="ho-form ho-form-boxed" >
+                                <div class="ho-form-inner">
+                                    <div class="single-input">
+                                        
+                                        @Html.CtrlInput(divSize: "single-input single-input-whole", id: "txtEmail", type: "type=\"email\"", format: "", label: "Dirección de correo electrónico", placeHolder: "Email", columnDataName: "Email")
+                                    </div>
+                                    <div class="single-input">                                       
+                                        @Html.CtrlInput(divSize: "single-input single-input-whole", id: "txtPassword", type: "type=\"password\"", format: "", label: "Contraseña", placeHolder: "Contraseña", columnDataName: "Password")
+                                    </div>
+                                    <div class="single-input">                                      
+                                        @Html.CtrlButton(viewName: "LogIn", id: "btnLogIn",style: "ho-button ho-button-primary     mr-3", label: "Iniciar sesión", onClickFunction: "LogIn")
+                                    </div>
+                                    <div class="single-input">
+                                        <a href="#">¿Perdiste tu contraseña?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--// Login Form -->
+                    <!-- Register Form -->
+                    <div class="col-lg-6 mt-30 mt-lg-0">
+                        <div class="login-form-wrapper">
+                            <h5>¿Sos un nuevo cliente? Registrate!</h5>
+                            <form action="#" class="ho-form ho-form-boxed">
+                                <div class="ho-form-inner">
+                                    <div class="single-input">                                      
+                                        @Html.CtrlInput(divSize: "single-input single-input-whole", id: "txtRegisterEmail", type: "type=\"email\"", format: "", label: "Dirección de correo electrónico", placeHolder: "Email", columnDataName: "Email")
+                                    </div>
+                                    @Html.CtrlButton(viewName: "LogIn", id:"registerButton", style: "ho-button ho-button-dark", label: "Registrarse", onClickFunction: "CreateUserRedirect")
+                                    
+                                    <label id="lblValidate"></label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--// Register Form -->
+
+                    <div class="container">
+                        <p></p>
+                        <p class="small">* Campos obligatorios</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// My Account Page -->
+        <!-- Omitir todo hacia abajo -->
+
+    </main>
+</body>

@@ -1,0 +1,14 @@
+﻿@using WebUI.Models.Helpers;
+<script src="~/Scripts/Views/CrudStore.js"></script>
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div id="wrapper" class="wrapper">
+        @{Html.RenderPartial("CreateStore");}
+    </div>
+
+<a href="~/Views/StoreManager.cshtml">~/Views/@*StoreManager*@.cshtml</a>

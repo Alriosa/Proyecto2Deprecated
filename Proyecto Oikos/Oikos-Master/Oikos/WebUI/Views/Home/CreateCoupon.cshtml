@@ -1,0 +1,38 @@
+﻿@using WebUI.Models.Helpers
+<script src="~/Scripts/Views/vCoupons.js"></script>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="wrapper" class="container-wrapper">
+    
+        <div class="row">
+            <div class="col-12 my-account-area ptb-30">
+                <h2>Crear Cupón</h2>
+                <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                    <div class="myaccount-details">
+                        <form class="ho-form" action="#">
+
+                            <div id="frmCoupon" class="ho-form-inner">
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtMaker", type: "text", format: "text", label: "Creador del cupón", placeHolder: "", columnDataName: "MakerCode")
+
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtValueType", type: "text", format: "text", label: "Tipo de Valor", placeHolder: "", columnDataName: "ValueTypeCode")
+
+
+                                @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtValue", type: "text", format: "text", label: "Valor", placeHolder: "", columnDataName: "Value")
+
+
+                                @Html.CtrlButton(viewName: "vCoupons", id: "btnCreate", style: "ho-button-dark", label: "Crear", onClickFunction: "Create")
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

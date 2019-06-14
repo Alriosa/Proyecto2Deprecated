@@ -1,0 +1,80 @@
+﻿@using WebUI.Models.Helpers;
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJDAhO7B7KZfmvVqqOc6UN3B0ZSZJ0KOE&callback=initMap"></script>
+<script src="~/Scripts/Views/DistanceMatrixService.js"></script>
+<link href="~/Content/customMatrix.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "MatrixDistance";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderPartial("_MenuStore");
+}
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Tracking</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Tracking</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                <div class="">
+
+                    <div class="breadcrumb-area bg-grey">
+                        <div class="container">
+                            <div id="mapSelector"></div>
+                            <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJDAhO7B7KZfmvVqqOc6UN3B0ZSZJ0KOE&callback=initMap"></script>
+                        </div>
+                        
+                       
+                    </div>
+                     
+                    <div class="tab-content myaccount-tab-content" id="#InfoTrackerBox">
+                        @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtStart", type: "type=\"text\" disabled", format: "", label: "Coordenadas de inicio", placeHolder: "", columnDataName: "StartCords")
+                        @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtDestiny", type: "type=\"text\" disabled", format: "", label: "Coordenadas de destino", placeHolder: "", columnDataName: "EndCords")
+                        @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtStartTime", type: "type=\"text\" disabled", format: "", label: "Tiempo de comienzo", placeHolder: "", columnDataName: "StartTime")
+                        @Html.CtrlInput(divSize: "single-input single-input-half", id: "txtDestinyTime", type: "type=\"text\" disabled", format: "", label: "Tiempo de llegada", placeHolder: "", columnDataName: "EndTime")
+                        @*@Html.CtrlInput(divSize: "single-input single-input-half", id: "txtRemainingTime", type: "type=\"text\"", format: "", label: "Cédula jurídica", placeHolder: "", columnDataName: "Identification")*@
+                    </div>
+                        
+
+                </div>
+                
+       
+            </div>
+            
+            
+           
+        </div>
+        
+
+    </div>
+    
+<div>
+    @* Button *@
+    @Html.CtrlButton(viewName: "DistanceMatrixService", id: "btnBack", style: "ho-button", label: "Atras", onClickFunction: "Back")
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

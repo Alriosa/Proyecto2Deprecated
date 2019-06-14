@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "StoreUserDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+
+
+        @{
+            Html.RenderPartial("_MenuStore");
+        }
+    <div id="wrapper" class="wrapper container">
+        <!--// Header -->
+        <!-- Page Content -->
+        <main class="page-content">
+
+            @* Inicio dasboard *@
+            <div class="col-12">
+                <div class="row mb-3">
+                    <div class="col-xl-3 col-sm-6 py-2">
+                        <div class="card bg-success text-white h-100">
+                            <div class="card-body bg-success">
+                                <div class="rotate">
+                                    <i class="fa fa-user fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Ventas</h6>
+                                <h1 class="display-4">111</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2">
+                        <div class="card text-white bg-info h-100">
+                            <div class="card-body bg-info">
+                                <div class="rotate">
+                                    <i class="fa fa-twitter fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Clientes</h6>
+                                <h1 class="display-4">124</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2">
+                        <div class="card text-white bg-warning h-100">
+                            <div class="card-body">
+                                <div class="rotate">
+                                    <i class="fa fa-share fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Solicitudes de producto</h6>
+                                <h1 class="display-4">33</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2">
+                        <div class="card text-white bg-danger h-100">
+                            <div class="card-body bg-warning">
+                                <div class="rotate">
+                                    <i class="fa fa-list fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Productos</h6>
+                                <h1 class="display-4">30</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* fin dashbaord *@
+        </main>
+
+        <!--// Page Content -->
+        <!-- Footer -->
+        <footer class="footer bg-white">
+
+            <!-- Footer Top Area -->
+            <div class="footer-toparea">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-12">
+                            <div class="footer-widget widget-info">
+                                <h5 class="footer-widget-title">Contacto</h5>
+                                <ul>
+                                    <li><i class="ion ion-ios-pin"></i> San José, Costa Rica</li>
+                                    <li><i class="ion ion-ios-call"></i> 800-OIKOS-NOW</li>
+                                    <li><i class="ion ion-ios-mail"></i> <a href="contact.html">ayuda@oikos.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget widget-links">
+                                <h5 class="footer-widget-title">Nuestra compañía</h5>
+                                <ul>
+                                    <li><a href="#">Acerca de Oikos</a></li>
+                                    <li><a href="#">Términos de uso</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--// Footer Top Area -->
+            <!-- Footer Bottom -->
+            <div class="footer-bottomarea">
+                <div class="container">
+                    <div class="footer-copyright">
+                        <p class="copyright">2018 &copy; Comercializadora y Distribuidora Centroamericana, S.A.</p>
+                    </div>
+                </div>
+            </div>
+            <!--// Footer Bottom -->
+        </footer>
+        <!--// Footer -->
+
+    </div>
+  
+</body>

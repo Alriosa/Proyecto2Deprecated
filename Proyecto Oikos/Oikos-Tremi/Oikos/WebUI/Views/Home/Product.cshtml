@@ -1,0 +1,131 @@
+﻿@using WebUI.Models.Helpers
+<script src="~/Scripts/Views/CrudProduct.js"></script>
+<script src="~/Scripts/Views/ShoppingCart.js"></script>
+
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <label id="whoAmI" class="d-none">details</label>
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="wrapper">
+
+        <!-- Breadcrumb Area -->
+        <div class="breadcrumb-area bg-grey">
+            <div class="container">
+                <div class="ho-breadcrumb">
+                    <ul>
+                        <li>
+                            <a href="/">Inicio</a>
+                        </li>
+                        <li id="liBreadcrumbStoreName"></li>
+                        <li id="liBreadcrumbProductName"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Breadcrumb Area -->
+        <!-- Page Content -->
+        <main class="page-content">
+
+            <!-- Product Details Area -->
+            <div class="product-details-area bg-white ptb-30">
+                <div class="container">
+                    <div class="pdetails">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="pdetails-images">
+
+                                    <div class="pdetails-largeimages pdetails-imagezoom">
+                                        <div id="divProductMedia1" class="pdetails-singleimage" data-src="h">
+                                            <img id="imgProductMediaFull1" src="" alt="">
+                                        </div>
+                                        <div id="divProductMedia2" class="pdetails-singleimage" data-src="">
+                                            <img id="imgProductMediaFull2" src="" alt="">
+                                        </div>
+                                        <div id="divProductMedia3" class="pdetails-singleimage">
+                                            <img id="imgProductMediaFull3" src="" alt="">
+                                        </div>
+                                        <div id="divProductMedia4" class="pdetails-singleimage" data-src="">
+                                            <img id="imgProductMediaFull4" src="" alt="">
+                                        </div>
+                                        <div id="divProductMedia5" class="pdetails-singleimage" data-src="">
+                                            <img id="imgProductMediaFull5" src="" alt="">
+                                        </div>
+                                    </div>
+
+                                    <div class="pdetails-thumbs">
+                                        <div >
+                                            <img class="pdetails-singlethumb" id="imgProductMediaThumb1" src="" alt="">
+                                        </div>
+                                        <div >
+                                            <img class="pdetails-singlethumb" id="imgProductMediaThumb2" src="" alt="">
+                                        </div>
+                                        <div class="pdetails-singlethumb">
+                                            <img id="imgProductMediaThumb3" src="" alt="">
+                                        </div>
+                                        <div >
+                                            <img class="pdetails-singlethumb" id="imgProductMediaThumb4" src="" alt="">
+                                        </div>
+                                        <div >
+                                            <img class="pdetails-singlethumb" id="imgProductMediaThumb5" src="" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="pdetails-content">
+
+                                    <h3 id="txtName"></h3>
+                                    <div class="pdetails-pricebox">
+                                        <span id="txtSellingPrice" class="price"></span>
+                                        <span id="badgeOutOfStock" class="badge d-none">Agotado</span>
+                                    </div>
+                                    <p id="txtDescription"></p>
+                                    <h5 id="txtStockQuantity"></h5>
+                                    <div id="pdetailsQuantity" class="pdetails-quantity">
+                                        <div class="quantity-select">
+                                            <input id="txtQuantity" disabled type="number" value="1" step="1" max="">
+                                            <div class="inc qtybutton">+<i class="ion ion-ios-arrow-up"></i></div>
+                                            <div class="dec qtybutton">-<i class="ion ion-ios-arrow-down"></i></div>
+                                        </div>
+                                        <button type="button" id="btnAddToCart" class="ho-button" onClick="AddToCart()">
+                                            <i class="lnr lnr-cart"></i>
+                                            <span>Agregar al carrito</span>
+                                        </button>
+                                    </div>
+                                    <div id="btnGoToCart" class="pdetails-quantity d-none">
+                                        <button type="button" class="ho-button" onClick="GoToCart()">
+                                            <i class="lnr lnr-cart"></i>
+                                            <span>Artículo agregado > Ver en carrito</span>
+                                        </button>
+                                    </div>
+                                    <div class="pdetails-categories">
+                                        <span>Categoría:</span>
+                                        <ul id="ulCategories">
+                                            <li>
+                                                <a href="shop-rightsidebar.html">Electrónicos</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// Product Details Area -->
+        </main>
+        <!--// Page Content -->
+
+    </div>
+    <!--// Wrapper -->
+}
+}

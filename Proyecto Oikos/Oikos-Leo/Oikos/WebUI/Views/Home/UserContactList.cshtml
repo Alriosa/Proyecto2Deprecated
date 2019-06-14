@@ -1,0 +1,82 @@
+﻿@using WebUI.Models.Helpers
+
+<script src="~/Scripts/Views/CrudUserContact.js"></script>
+@{
+    ViewBag.Title = "UserContactList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="ho-breadcrumb">
+            <ul>
+                <li>@Html.ActionLink("Inicio", "index")</li>
+                <li>Listar los contacto de usuario</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<div id="wrapper" class="container wrapper">
+    <div class="row">
+        <div class="col-12 my-account-area ptb-30">
+            <h2>Contacto de usuario</h2>
+            <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                @Html.CtrlTable(viewName: "Crud", id: "tblUserContact", title: "Contacto de usuario",
+                    columnsTitle: "ID de contacto de usuario ,ID de usuario, Codigo de contacto ,Informacion", ColumnsDataName: "UserContactId,UserId,ContactTypeCode,ContactValue", onSelectFunction: "BindFields")
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="Update" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Modificar tienda</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 my-account-area ptb-30">
+                    <div class="tab-content myaccount-tab-content" id="account-page-tab-content">
+                        <div class=""> 
+                            <form action="#" class="ho-form" id="">
+                                <div id="frmUserContact" class="ho-form-inner">
+
+
+                                    @* Hidden *@
+                                    @*UserId*@
+                                    @Html.CtrlInput(divSize: "d-none", id: "txtShippingProviderId", type: "type=\"text\" disabled ", format: "", label: "Id del Usuario", placeHolder: "", columnDataName: "UserId")
+                                    @*ContactTypeCode*@
+                                    @Html.CtrlDropDown2(id: "drpProviderType", label: "Tipo de Proveedor", listId: "typecode", style: "single-input single-input-half", columnDataName: "ProviderType")
+                                    @*ContactValue*@
+                                    @Html.CtrlInput(divSize: "single-input", id: "txtContactValue", type: "type=\"text\"", format: "", label: "Datos", placeHolder: "", columnDataName: "ContactValue")
+                                            
+
+                                        <div class="d-flex flex-row">
+                                            <div>
+                                                @Html.CtrlButton(viewName: "Crud", id: "btnCancel\" data-dismiss=\"modal\"", style: "ho-button-dark", label: "Cancelar", onClickFunction: "")
+                                            </div>
+                                            <div>
+                                                @Html.CtrlButton(viewName: "Crud", id: "btnDelete", style: "ho-button", label: "Eliminar", onClickFunction: "Delete")
+                                            </div>
+                                            <div>
+                                                @Html.CtrlButton(viewName: "Crud", id: "btnSuspend", style: "ho-button", label: "Suspender", onClickFunction: "Suspend")
+                                            </div>
+                                            <div>
+                                                @Html.CtrlButton(viewName: "Crud", id: "btnUpdate", style: "ho-button ", label: "Modificar tienda", onClickFunction: "Update")
+                                            </div>
+                                        </div>
+                                    </div>                            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
